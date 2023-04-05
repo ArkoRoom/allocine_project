@@ -1,8 +1,9 @@
+import MoviesContainer from "./containers/MoviesContainers";
 
 function App() {
   return (
     <div className="App">
-      Toto
+      <MoviesContainer />
     </div>
   );
 }
