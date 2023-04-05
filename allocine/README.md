@@ -7,11 +7,11 @@
 
 ### `npx tailwindcss -i ./src/index.css -o ./public/dist/index.css --watch`
 
-#### Détails
-
-**-i** définit l'entrée.
-**-o** définit la sortie.
-**--watch** permets de rafraichir automatiquement à chaque enregistrement/modification.
+> Informations
+>
+> **-i** définit l'entrée.
+> **-o** définit la sortie.
+> **--watch** permets de rafraichir automatiquement à chaque enregistrement/modification.
 
 # Création d'un build pour la production
 
