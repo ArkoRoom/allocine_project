@@ -9,9 +9,9 @@
 
 #### Détails
 
-**-i** définit l'entrée
-**-o** définit la sortie
-**--watch** permets de rafraichir automatiquement à chaque enregistrement/modification
+**-i** définit l'entrée.
+**-o** définit la sortie.
+**--watch** permets de rafraichir automatiquement à chaque enregistrement/modification.
 
 # Création d'un build pour la production
 
