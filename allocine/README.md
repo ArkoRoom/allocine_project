@@ -9,8 +9,8 @@
 
 > Informations
 >
-> - **-i** définit l'entrée.
-> - **-o** définit la sortie.
+> - **-i** définit le fichier d'entrée (input).
+> - **-o** définit le fichier de sortie (output).
 > - **--watch** permets de rafraichir automatiquement à chaque enregistrement/modification.
 
 # Création d'un build pour la production
