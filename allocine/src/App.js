@@ -16,19 +16,22 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.initMovies();
+  }
+
+  initMovies() {
     axios.get(`${API_END_POINT}${POPULAR_MOVIES_URL}&${API_KEY}`).then((response) => {
-        this.setState({movieList: response.data.results});
-        this.setState({currentMovie: response.data.results[0]});
-        console.log('AXIOS : ', response);
-        console.log('MOVIE LIST : ', this.state.movieList);
-        console.log('CURRENT MOVIE : ', this.state.currentMovie);
-      });
+      this.setState({movieList: response.data.results, currentMovie: response.data.results[0]});
+      console.log('AXIOS : ', response);
+      console.log('MOVIE LIST : ', this.state.movieList);
+      console.log('CURRENT MOVIE : ', this.state.currentMovie);
+    });
   }
 
   render() {
     return (
       <div className="App">
-        <MoviesContainer />
+        <MoviesContainer movie={this.state.currentMovie} moviesList={this.state.movieList} />
       </div>
     )
   }
