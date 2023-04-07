@@ -30,7 +30,7 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App max-h-screen">
         <MoviesContainer movie={this.state.currentMovie} moviesList={this.state.movieList} />
       </div>
     )

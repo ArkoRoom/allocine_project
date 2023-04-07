@@ -10,15 +10,8 @@ class MoviesContainer extends Component {
     }
 
     render() {
-        const renderMovieList = () => {
-            if(this.props.moviesList.length > 0) {
-                return <VideoList moviesList={this.props.moviesList} />
-            } else {
-                return ''
-            }
-        }
         return(
-            <div className="container lg mx-auto">
+            <div className="container lg mx-auto h-full">
                 <SearchBar />
                 <div className="flex">
                     <div className="flex-1 w-68">
@@ -26,7 +19,7 @@ class MoviesContainer extends Component {
                     </div>
                     <div className="flex-initial w-32">
                         <h3>Films recommandés : </h3>
-                        {renderMovieList()}
+                        {this.props.moviesList.length > 0 ? <VideoList moviesList={this.props.moviesList} /> : ''}
                     </div>
                 </div>
             </div>

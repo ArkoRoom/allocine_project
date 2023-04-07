@@ -10,7 +10,7 @@ class SearchBar extends Component {
     render() {
         return (
             <div className="mx-auto w-1/2 rounded-md shadow-sm ring-1 ring-inset ring-gray-300 sm:max-w-md">
-                <div className="mt-4">
+                <div className="my-4">
                     <input 
                     type="text" 
                     name="first-name" 
