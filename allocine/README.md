@@ -3,7 +3,7 @@
 ## Lancement de React.js
 ### `npm start`
 
-## Lancement du CSS 
+## Lancement du CSS (Dev)
 
 ### `npx tailwindcss -i ./src/index.css -o ./public/dist/index.css --watch`
 

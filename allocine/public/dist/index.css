@@ -609,12 +609,47 @@ video {
   display: block;
 }
 
+.flex {
+  display: flex;
+}
+
 .w-1\/2 {
   width: 50%;
 }
 
 .w-full {
   width: 100%;
+}
+
+.w-32 {
+  width: 8rem;
+}
+
+.flex-initial {
+  flex: 0 1 auto;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.list-disc {
+  list-style-type: disc;
+}
+
+.columns-4 {
+  -webkit-columns: 4;
+          columns: 4;
+}
+
+.columns-8 {
+  -webkit-columns: 8;
+          columns: 8;
+}
+
+.columns-2 {
+  -webkit-columns: 2;
+          columns: 2;
 }
 
 .rounded-md {
