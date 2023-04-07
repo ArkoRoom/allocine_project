@@ -5,7 +5,7 @@ const VideoListItem = ({movie}) => {
     return(
         <li className="list-disc">
             <img src={IMAGE_BASE_URL + movie.poster_path} alt={movie.title} width='25%'/>
-            <p>{movie.title}</p>
+            <p className="text-xs">{movie.title}</p>
         </li>
     )
 }
