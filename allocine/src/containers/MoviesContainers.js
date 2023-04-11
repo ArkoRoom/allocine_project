@@ -19,7 +19,7 @@ class MoviesContainer extends Component {
                     </div>
                     <div className="flex-initial w-32">
                         <h3>Films recommandés : </h3>
-                        {this.props.moviesList.length > 0 ? <VideoList moviesList={this.props.moviesList} /> : ''}
+                        {this.props.moviesList.length > 0 ? <VideoList moviesList={this.props.moviesList} callback={this.props.callback} /> : ''}
                     </div>
                 </div>
             </div>

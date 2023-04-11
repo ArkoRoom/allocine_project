@@ -40,10 +40,16 @@ class App extends Component {
     });
   }
 
+  receiveCallback(movie) {
+        this.setState({currentMovie: movie}, () => {
+          this.applyVideoToCurrentMovie()
+        })
+    }
+
   render() {
     return (
       <div className="App flex max-h-screen">
-        <MoviesContainer movie={this.state.currentMovie} moviesList={this.state.movieList} />
+        <MoviesContainer movie={this.state.currentMovie} moviesList={this.state.movieList} callback={this.receiveCallback.bind(this)} />
       </div>
     )
   }
