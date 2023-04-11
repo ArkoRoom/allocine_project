@@ -8,6 +8,7 @@ import VideoDetails from '../components/VideoDetails';
 const API_END_POINT = "https://api.themoviedb.org/3/"
 const POPULAR_MOVIES_URL = "discover/movie?language=fr&sort_by=popularity.desc&include_adult=false&append_to_response=images"
 const API_KEY = "api_key=2195faaed2128378c827a0ab3d051f06"
+const SEARCH_URL = "search/movie?language=fr&include_adult=false"
 
 class MoviesContainer extends Component {
     constructor(props) {
@@ -25,12 +26,9 @@ class MoviesContainer extends Component {
 
     initMovies() {
         axios.get(`${API_END_POINT}${POPULAR_MOVIES_URL}&${API_KEY}`).then((response) => {
-        this.setState({movieList: response.data.results, currentMovie: response.data.results[0]}, () => {
-            this.applyVideoToCurrentMovie();
-        });
-        console.log('AXIOS : ', response);
-        console.log('MOVIE LIST : ', this.state.movieList);
-        console.log('CURRENT MOVIE : ', this.state.currentMovie);
+            this.setState({movieList: response.data.results, currentMovie: response.data.results[0]}, () => {
+                this.applyVideoToCurrentMovie();
+            });
         });
     }
 
@@ -49,10 +47,25 @@ class MoviesContainer extends Component {
         })
     }
 
+    onClickSearch(searchText) {
+        if(searchText) {
+            axios.get(`${API_END_POINT}${SEARCH_URL}&${API_KEY}&query=${searchText}`).then((response) => {
+                if(response.data && response.data.results[0]) {
+                    if(response.data.results[0].id !== this.state.currentMovie.id) {
+                        this.setState({currentMovie: response.data.results[0]}, () => {
+                            this.applyVideoToCurrentMovie()
+                        })
+                    }
+                }
+            })
+        }
+        
+    }
+
     render() {
         return(
             <div className="container lg mx-auto h-full">
-                <SearchBar />
+                <SearchBar callback={this.onClickSearch.bind(this)} />
                 <div className="flex">
                     <div className="flex-1 w-68">
                         <VideoDetails movie={this.state.currentMovie} />
