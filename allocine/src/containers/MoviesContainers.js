@@ -34,16 +34,22 @@ class MoviesContainer extends Component {
 
     applyVideoToCurrentMovie() {
         axios.get(`${API_END_POINT}movie/${this.state.currentMovie.id}?append_to_response=videos&include_adult=false&${API_KEY}`).then((response) => {
-        const youtubeKey = response.data.videos.results[0].key;
-        let newCurrentMovieState = this.state.currentMovie;
-        newCurrentMovieState.videoId = youtubeKey;
-        this.setState({currentMovie: newCurrentMovieState})
+            const youtubeKey = response.data.videos.results[0].key;
+            let newCurrentMovieState = this.state.currentMovie;
+            newCurrentMovieState.videoId = youtubeKey;
+            this.setState({currentMovie: newCurrentMovieState})
         });
     }
 
     onClickListItem(movie) {
         this.setState({currentMovie: movie}, () => {
-          this.applyVideoToCurrentMovie()
+            this.applyVideoToCurrentMovie();
+        })
+    }
+
+    setRecommandations() {
+        axios.get(`${API_END_POINT}movie/${this.state.currentMovie.id}/recommandations?${API_KEY}&language=fr`).then((response) => {
+            this.setState({movieList: response.data.results.slice(0, 5)})
         })
     }
 
@@ -54,6 +60,7 @@ class MoviesContainer extends Component {
                     if(response.data.results[0].id !== this.state.currentMovie.id) {
                         this.setState({currentMovie: response.data.results[0]}, () => {
                             this.applyVideoToCurrentMovie()
+                            this.setRecommandations()
                         })
                     }
                 }
